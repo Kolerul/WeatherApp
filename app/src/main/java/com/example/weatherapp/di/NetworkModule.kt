@@ -1,27 +1,28 @@
 package com.example.weatherapp.di
 
 import com.example.weatherapp.data.network.WeatherApi
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 class NetworkModule {
 
     @Provides
-    fun provideMoshi(): Moshi =
-        Moshi.Builder()
-            .addLast(KotlinJsonAdapterFactory())
-            .build()
+    fun provideGson(): Gson =
+        GsonBuilder()
+            .setLenient()
+            .create()
 
     @Provides
-    fun provideMoshiConverterFactory(moshi: Moshi): MoshiConverterFactory =
-        MoshiConverterFactory.create(moshi)
+    fun provideFactory(gson: Gson): GsonConverterFactory =
+        GsonConverterFactory.create(gson)
+
 
     @Provides
     fun provideClient(): OkHttpClient =
@@ -31,13 +32,13 @@ class NetworkModule {
 
     @Provides
     fun provideRetrofit(
-        moshiConverterFactory: MoshiConverterFactory,
+        converterFactory: GsonConverterFactory,
         client: OkHttpClient
     ): Retrofit =
         Retrofit.Builder()
             .baseUrl(WeatherApi.BASE_URL)
             .client(client)
-            .addConverterFactory(moshiConverterFactory)
+            .addConverterFactory(converterFactory)
             .build()
 
     @Provides

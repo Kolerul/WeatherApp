@@ -1,9 +1,10 @@
 package com.example.weatherapp.data.model
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
+
 
 data class Wind(
     val speed: Double,
-    @Json(name = "deg") val degrees: Int,
+    @SerializedName("deg") val degrees: Int,
     val gust: Double
 )

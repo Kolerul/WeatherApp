@@ -1,7 +1,7 @@
 package com.example.weatherapp.data.model.forecast
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
 data class ForecastSys(
-    @Json(name = "pod") val partOfTheDay: String
+    @SerializedName("pod") val partOfTheDay: String
 )

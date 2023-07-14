@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="forecast">Forecast</string>
+    <string name="detail">Detail</string>
+    <string name="degrees">%s°</string>
+    <string name="wind_speed">Wind speed %s</string>
+    <string name="clouds">Clouds %s</string>
+    <string name="humidity">Humidity %s</string>
+    <string name="wind">Wind</string>
+    <string name="precipitation">Precipitation</string>
+    <string name="other">Other</string>
+    <string name="feels_like">Feels like %s°</string>
+    <string name="visibility">Visibility %s</string>
+    <string name="wind_degrees">Wind degrees %s</string>
+    <string name="wind_gust">Wind gust %s</string>
+    <string name="rain">Rain %s</string>
+    <string name="snow">Snow %S</string>
 </resources>

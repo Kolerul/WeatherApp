@@ -2,7 +2,6 @@ package com.example.weatherapp.data.network
 
 import com.example.weatherapp.data.model.WeatherResponse
 import com.example.weatherapp.data.model.forecast.ForecastWeatherResponse
-import okhttp3.ResponseBody
 import retrofit2.http.GET
 import retrofit2.http.Query
 

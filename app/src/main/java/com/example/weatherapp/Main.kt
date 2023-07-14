@@ -1,18 +1,16 @@
 package com.example.weatherapp
 
 import com.example.weatherapp.data.network.WeatherApi
-import com.squareup.moshi.Moshi
+import com.google.gson.GsonBuilder
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 
 fun main() = runBlocking {
-    val moshi = Moshi.Builder()
-        .build()
 
-    val factory = MoshiConverterFactory.create(moshi)
+    val factory = GsonConverterFactory.create(GsonBuilder().setLenient().create())
 
     val logger = HttpLoggingInterceptor()
     logger.setLevel(HttpLoggingInterceptor.Level.BASIC)
