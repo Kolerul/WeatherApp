@@ -49,6 +49,17 @@ fun convertForecastList(
         convertForecastWeather(forecastWeather)
     }
 
+//fun convertWeatherList(list: List<com.example.weatherapp.data.model.Weather>): List<WeatherMain> =
+//    list.map { weather ->
+//        Log.d("Convert", "${WeatherTypes.valueOf(weather.main)}")
+//        WeatherMain(
+//            id = weather.id,
+//            main = WeatherTypes.valueOf(weather.main),
+//            description = weather.description,
+//            icon = weather.icon
+//        )
+//    }
+
 fun convertForecastWeather(forecastWeather: com.example.weatherapp.data.model.forecast.ForecastWeather): ForecastWeather =
     ForecastWeather(
         date = forecastWeather.date,

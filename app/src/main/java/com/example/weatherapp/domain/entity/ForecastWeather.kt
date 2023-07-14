@@ -15,7 +15,7 @@ data class ForecastWeather(
     val clouds: Clouds,
     val wind: Wind,
     val visibility: Int,
-    val probabilityOfPrecipitation: Int,
+    val probabilityOfPrecipitation: Double,
     val rain: ForecastRain,
     val snow: ForecastSnow,
     val sys: ForecastSys,

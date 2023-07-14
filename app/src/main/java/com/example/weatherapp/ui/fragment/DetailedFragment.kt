@@ -3,6 +3,7 @@ package com.example.weatherapp.ui.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.weatherapp.R
 import com.example.weatherapp.WeatherApp
 import com.example.weatherapp.databinding.FragmentDetailedBinding
@@ -20,6 +21,15 @@ class DetailedFragment : BaseFragment<FragmentDetailedBinding>(FragmentDetailedB
         super.onViewCreated(view, savedInstanceState)
 
         setUiObserver()
+        setOnClickListeners()
+    }
+
+    private fun setOnClickListeners() {
+        notNullBinding.apply {
+            toolbar.setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
     }
 
     private fun setUiObserver() {
@@ -64,6 +74,22 @@ class DetailedFragment : BaseFragment<FragmentDetailedBinding>(FragmentDetailedB
                 R.string.humidity,
                 weather.weatherData.humidity.toString()
             )
+            visibility.text =
+                requireContext().getString(R.string.visibility, weather.visibility.toString())
+            weatherDescription.text = weather.weather[0].description
+
+            when (weather.weather[0].main) {
+                "Clear" -> {
+                    if (weather.date > weather.sys.sunrise && weather.date < weather.sys.sunset)
+                        weatherImage.setImageResource(R.drawable.ic_sunny)
+                    else weatherImage.setImageResource(R.drawable.ic_moon)
+                }
+
+                "Clouds" -> weatherImage.setImageResource(R.drawable.ic_cloud)
+                "Rain" -> weatherImage.setImageResource(R.drawable.ic_rain)
+                "Snow" -> weatherImage.setImageResource(R.drawable.ic_snow)
+                "Extreme" -> weatherImage.setImageResource(R.drawable.ic_flashlight)
+            }
         }
     }
 }

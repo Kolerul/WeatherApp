@@ -12,7 +12,7 @@ data class ForecastWeather(
     val clouds: Clouds,
     val wind: Wind,
     val visibility: Int,
-    @SerializedName("pop") val probabilityOfPrecipitation: Int,
+    @SerializedName("pop") val probabilityOfPrecipitation: Double,
     val rain: ForecastRain?,
     val snow: ForecastSnow?,
     val sys: ForecastSys,

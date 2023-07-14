@@ -33,5 +33,3 @@ fun main() = runBlocking {
     println(response.toString())
 }
 
-//https://api.openweathermap.org/data/2.5/weather?q=Saint Petersburg&appid=d9e6fe2ca9bd114df14262b014663852
-//https://api.openweathermap.org/data/2.5/weather?q=Saint%20Petersburg&appid=d9e6fe2ca9bd114df14262b014663852

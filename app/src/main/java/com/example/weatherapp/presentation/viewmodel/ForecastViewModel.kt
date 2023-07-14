@@ -24,10 +24,11 @@ class ForecastViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val forecast = repository.getForecastForFiveDays()
+
                 _uiState.value = ForecastUIState.Success(forecast)
             } catch (e: Exception) {
                 _uiState.value = ForecastUIState.Error(1)
-                Log.d("ViewModel", "${e.message}")
+                Log.d("ForecastViewModel", "${e.message}")
             }
         }
     }

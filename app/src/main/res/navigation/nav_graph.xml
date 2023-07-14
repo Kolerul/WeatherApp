@@ -11,9 +11,16 @@
         <action
             android:id="@+id/action_weatherFragment_to_detailedFragment"
             app:destination="@id/detailedFragment" />
+        <action
+            android:id="@+id/action_weatherFragment_to_forecastFragment"
+            app:destination="@id/forecastFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailedFragment"
         android:name="com.example.weatherapp.ui.fragment.DetailedFragment"
         android:label="DetailedFragment" />
+    <fragment
+        android:id="@+id/forecastFragment"
+        android:name="com.example.weatherapp.ui.fragment.ForecastFragment"
+        android:label="ForecastFragment" />
 </navigation>
