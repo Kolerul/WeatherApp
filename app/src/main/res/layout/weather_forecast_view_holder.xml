@@ -36,7 +36,9 @@
             android:layout_height="wrap_content" />
 
         <ImageView
-            android:layout_margin="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="10dp"
             android:id="@+id/humidity_image"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -47,7 +49,8 @@
             app:layout_constraintEnd_toStartOf="@id/humidity_text" />
 
         <TextView
-            android:text="100%"
+            android:textColor="#6B6B6B"
+            android:text="@string/_100"
             android:id="@+id/humidity_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,7 +70,7 @@
             app:layout_constraintEnd_toStartOf="@id/degrees" />
 
         <TextView
-            android:text="12"
+            android:text="@string/degrees"
             android:id="@+id/degrees"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -29,7 +29,7 @@ class ForecastWeatherViewHolder(private val binding: WeatherForecastViewHolderBi
                 "Clouds" -> weatherImage.setImageResource(R.drawable.ic_cloud)
                 "Rain" -> weatherImage.setImageResource(R.drawable.ic_rain)
                 "Snow" -> weatherImage.setImageResource(R.drawable.ic_snow)
-                "Extreme" -> weatherImage.setImageResource(R.drawable.ic_flashlight)
+                "Extreme" -> weatherImage.setImageResource(R.drawable.ic_lightning)
             }
         }
     }

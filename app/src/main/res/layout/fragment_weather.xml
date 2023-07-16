@@ -7,114 +7,167 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
+        android:paddingStart="6dp"
+        app:title="@string/app_name"
         android:layout_width="match_parent"
+        app:menu="@menu/refresh_menu"
         android:layout_height="wrap_content" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <ScrollView
+        android:id="@+id/content_layout"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:background="@drawable/sunny"
+        android:layout_height="0dp">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/start_guide_line"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="10dp" />
+        <androidx.cardview.widget.CardView
+            android:layout_margin="6dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/end_guide_line"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="10dp" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/info"
-            android:text="info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_guide_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="10dp" />
 
-        <ImageView
-            android:src="@drawable/ic_sunny"
-            android:id="@+id/weather_image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/info"
-            app:layout_constraintStart_toEndOf="@id/degrees"
-            app:layout_constraintEnd_toEndOf="@id/end_guide_line" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_guide_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="10dp" />
 
-        <TextView
-            android:textSize="80sp"
-            android:text="@string/degrees"
-            android:id="@+id/degrees"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/start_guide_line"
-            app:layout_constraintTop_toTopOf="@id/weather_image"
-            app:layout_constraintBottom_toBottomOf="@id/weather_image"
-            app:layout_constraintEnd_toStartOf="@id/weather_image" />
+                <TextView
+                    android:id="@+id/info"
+                    android:text="info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/wind_speed"
-            android:text="Wind speed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            app:layout_constraintStart_toStartOf="@id/start_guide_line"
-            app:layout_constraintTop_toBottomOf="@id/weather_image" />
+                <ImageView
+                    android:src="@drawable/ic_sunny"
+                    android:id="@+id/weather_image"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/info"
+                    app:layout_constraintStart_toEndOf="@id/degrees"
+                    app:layout_constraintEnd_toEndOf="@id/end_guide_line" />
 
-        <TextView
-            android:id="@+id/clouds"
-            android:text="Clouds %"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            app:layout_constraintStart_toStartOf="@id/start_guide_line"
-            app:layout_constraintTop_toBottomOf="@id/wind_speed" />
+                <TextView
+                    android:textSize="80sp"
+                    android:text="@string/degrees"
+                    android:id="@+id/degrees"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/start_guide_line"
+                    app:layout_constraintTop_toTopOf="@id/weather_image"
+                    app:layout_constraintBottom_toBottomOf="@id/weather_image"
+                    app:layout_constraintEnd_toStartOf="@id/weather_image" />
 
-        <TextView
-            android:id="@+id/humidity"
-            android:text="Humidity %"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            app:layout_constraintStart_toStartOf="@id/start_guide_line"
-            app:layout_constraintTop_toBottomOf="@id/clouds" />
+                <TextView
+                    android:layout_marginTop="6dp"
+                    android:id="@+id/feels_like"
+                    android:text="@string/feels_like_title"
+                    app:layout_constraintTop_toBottomOf="@id/weather_image"
+                    app:layout_constraintStart_toStartOf="@id/start_guide_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginTop="6dp"
+                    android:id="@+id/weather_description"
+                    android:text="@string/description"
+                    app:layout_constraintTop_toBottomOf="@id/feels_like"
+                    app:layout_constraintStart_toStartOf="@id/start_guide_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/wind_speed"
+                    android:text="@string/wind_speed_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintStart_toStartOf="@id/start_guide_line"
+                    app:layout_constraintTop_toBottomOf="@id/weather_description" />
+
+                <TextView
+                    android:id="@+id/humidity"
+                    android:text="@string/humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintStart_toStartOf="@id/start_guide_line"
+                    app:layout_constraintTop_toBottomOf="@id/wind_speed" />
+
+                <TextView
+                    android:id="@+id/pressure"
+                    android:text="@string/pressure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/start_guide_line"
+                    app:layout_constraintTop_toBottomOf="@id/humidity" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </ScrollView>
+
+    <ProgressBar
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:id="@+id/loading_progress_bar"
+        android:layout_width="wrap_content"
+        android:indeterminateDrawable="@drawable/ring_progress_bar"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
             android:text="@string/detail"
             android:id="@+id/detail_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            app:flow_verticalBias="0.0"
-            app:layout_constraintEnd_toStartOf="@id/forecast_button"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/start_guide_line"
-            app:layout_constraintTop_toBottomOf="@id/humidity"
-            app:layout_constraintVertical_bias="1.0" />
+            android:layout_margin="10dp" />
+
+        <androidx.slidingpanelayout.widget.SlidingPaneLayout
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/forecast_button"
             android:text="@string/forecast"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            app:flow_verticalBias="0.0"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/end_guide_line"
-            app:layout_constraintStart_toEndOf="@id/detail_button"
-            app:layout_constraintTop_toBottomOf="@id/humidity"
-            app:layout_constraintVertical_bias="1.0" />
+            android:layout_margin="10dp" />
 
+    </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
+

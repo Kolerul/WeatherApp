@@ -9,15 +9,19 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_sunny"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_sunny"
         android:supportsRtl="true"
         android:theme="@style/Theme.WeatherApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.MainActivity"
-            android:exported="true">
+            android:name=".ui.activity.LaunchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:exported="true"
+            android:theme="@style/Base.Theme.WeatherApp.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

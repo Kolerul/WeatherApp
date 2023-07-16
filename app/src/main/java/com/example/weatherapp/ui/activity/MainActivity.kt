@@ -1,18 +1,15 @@
-package com.example.weatherapp.ui
+package com.example.weatherapp.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.example.weatherapp.R
-import com.example.weatherapp.WeatherApp
-import com.example.weatherapp.databinding.ActivityMainBinding
-import com.example.weatherapp.presentation.viewmodel.CurrentWeatherViewModel
 
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_WeatherApp)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
