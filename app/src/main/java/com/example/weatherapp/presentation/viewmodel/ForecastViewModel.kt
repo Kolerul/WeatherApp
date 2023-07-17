@@ -10,6 +10,7 @@ import com.example.weatherapp.presentation.uistate.ForecastUIState
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.lang.Exception
+import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import javax.inject.Inject
 
@@ -30,6 +31,8 @@ class ForecastViewModel @Inject constructor(
                 _uiState.value = ForecastUIState.Success(forecast)
             } catch (e: UnknownHostException) {
                 _uiState.value = ForecastUIState.Error(R.string.internet_connection_error)
+            } catch (e: SocketTimeoutException) {
+                _uiState.value = ForecastUIState.Error(R.string.connection_time_error)
             } catch (e: HttpException) {
                 _uiState.value = when (e.code()) {
                     401 -> ForecastUIState.Error(R.string.user_not_authorised)
